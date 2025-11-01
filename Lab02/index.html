@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="DotNet - Laboratorium nr2.">
+    <meta name="author" content="Michał Madeiski">
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="dotnet, lab2, html">
+
+    <title>Lab02</title>
+</head>
+<body>
+    <header>dotNet - Lab02</header>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores fuga perferendis veniam magnam debitis illum repellendus facere minus quos blanditiis sapiente, numquam accusantium, natus aspernatur tempore, id enim neque incidunt vitae voluptatibus laborum qui repudiandae unde labore. Dolore voluptatibus quidem sequi eligendi asperiores nulla, minima reiciendis quis et, natus velit dolorem temporibus quos incidunt ipsum nemo accusamus cum fugiat officiis at delectus? Enim cupiditate laboriosam iure quae quod assumenda tenetur consequatur nisi accusantium! Optio ducimus quia maiores quam est quidem reiciendis distinctio illo blanditiis odit ut incidunt perferendis nesciunt asperiores et impedit sit tempore nam ipsum, aut fuga! Laborum, eos!</p>
+    
+    <article>
+        <h2>Style tekstu i znaki specjalne:</h2>
+        <p><strong>tu jest pogrubiony tekst &copy;</strong></p>
+        <p><em>tu jest tekst pisany kursywą &sum;</em></p>
+        <p><u>tu jest podkreślony tekst &olarr;</u></p>
+        <p><s>tu jest przekreślony tekst &mscr;</s></p>
+        <p><mark>tu jest podświetlony tekst &reg;</mark></p>
+    </article>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo corrupti quia debitis dolorem modi quisquam odio eaque facere esse nisi omnis, laboriosam architecto, enim qui doloremque necessitatibus quis dolores eum non sapiente aut, magnam tenetur harum aliquam. Ab omnis et deserunt dolorum? Fugiat mollitia, in culpa vitae molestias explicabo neque voluptate unde corporis, omnis dignissimos minima dolorem animi reiciendis qui veniam pariatur consequuntur quia aliquid! Nulla et reprehenderit quasi? Sed deleniti, neque impedit ullam aperiam veritatis, nam unde nisi possimus assumenda perferendis quas nesciunt saepe odit iusto molestiae blanditiis totam. Aliquid quidem unde libero error reprehenderit qui ad, nulla beatae?</p>
+
+    <section id="lists">
+        <h2>Listy:</h2>
+        <p>Lista zwykła:</p>
+        <ul>
+            <li>Element pierwszy</li>
+            <li>Element drugi</li>
+            <li>Element trzeci</li>
+            <li>Element czwarty</li>
+            <li>Element piąty</li>
+        </ul>
+
+        <p>Lista numerowana:</p>
+        <ol>
+            <li>Element pierwszy</li>
+            <li>Element drugi</li>
+            <li>Element trzeci</li>
+            <li>Element czwarty</li>
+            <li>Element piąty</li>
+        </ol>
+
+        <p>Lista definicji:</p>
+        <dl>
+            <dt>Element pierwszy</dt><dd>Definicja pierwsza</dd>
+            <dt>Element drugi</dt><dd>Definicja druga</dd>
+            <dt>Element trzeci</dt><dd>Definicja trzecia</dd>
+            <dt>Element czwarty</dt><dd>Definicja czwarta</dd>
+            <dt>Element piąty</dt><dd>Definicja piąta</dd>
+        </dl>
+
+        <p>Lista zagnieżdżona:</p>
+        <ol type="A">
+            <li><p>Poziom pierwszy</p></li>
+            <li><p>Nadal poziom pierwszy</p></li>
+            <li>
+                <ol type="a">
+                    <li><p>Poziom drugi</p></li>
+                    <li><p>Nadal poziom drugi</p></li>
+                    <li>
+                        <ol type="I">
+                            <li><p>Poziom trzeci</p></li>
+                            <li><p>Nadal poziom trzeci</p></li>
+                            <li>
+                                <ol type="i">
+                                    <li><p>Poziom czwarty</p></li>
+                                    <li><p>Nadal poziom czwarty</p></li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+            </li>
+        </ol>
+    </section>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis tempore maxime quia labore debitis obcaecati minus voluptatum, cumque accusantium ducimus a commodi incidunt ex magnam error unde consectetur minima aliquam repellendus nam soluta autem fugiat sapiente nihil! In doloribus sunt, animi ipsam nesciunt quaerat commodi harum consectetur, quisquam est ipsa odit sapiente autem explicabo qui voluptatem voluptate! Distinctio dignissimos quos id quaerat voluptatem omnis ratione consequatur maxime eos, excepturi, saepe architecto natus nostrum itaque deleniti! Numquam commodi aliquam dicta assumenda cum hic fuga iste. Voluptas maiores, est qui quam fugit, sapiente architecto temporibus delectus nesciunt reprehenderit similique vero culpa sunt.</p>
+
+    <div id="table">
+        <table border="10">
+            <caption>PLAN LEKCJI</caption>
+            <thead>
+                <tr>
+                    <th>CZAS</th>
+                    <th>PON</th>
+                    <th>WT</th>
+                    <th>ŚR</th>
+                    <th>CZW</th>
+                    <th>PT</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>8:00 - 8:45</td>
+                    <td>Matematyka</td>
+                    <td>Biologia</td>
+                    <td>Chemia</td>
+                    <td></td>
+                    <td>Fizyka</td>
+                </tr>
+
+                <tr>
+                    <td>8:45 - 8:50</td>
+                    <td colspan="5">Przerwa I</td>
+                </tr>
+
+                <tr>
+                    <td>8:50 - 9:35</td>
+                    <td rowspan="3">Wf</td>
+                    <td>Angielski</td>
+                    <td>Matematyka</td>
+                    <td>Niemiecki</td>
+                    <td>Polski</td>
+                </tr>
+
+                <tr>
+                    <td>9:35 - 9:45</td>
+                    <td colspan="4">Przerwa II</td>
+                </tr>
+
+                <tr>
+                    <td>9:45 - 10:30</td>
+                    <td>Angielski</td>
+                    <td>Matematyka</td>
+                    <td>Angielski</td>
+                    <td>Polski</td>
+                </tr>
+
+                <tr>
+                    <td>10:30 - 10:45</td>
+                    <td colspan="5">Przerwa III</td>
+                </tr>
+
+                <tr>
+                    <td>10:45 - 11:30</td>
+                    <td>Polski</td>
+                    <td>Niemiecki</td>
+                    <td></td>
+                    <td>Historia</td>
+                    <td>Informatyka</td>
+                </tr>
+
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <td colspan="6"><strong>ROK SZKOLNY 2025/2026</strong></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed nesciunt doloremque aperiam sit rerum ducimus sapiente illo aspernatur assumenda eaque cupiditate in voluptatem molestiae inventore enim dolorum, numquam perferendis placeat minus saepe repellat consequuntur sequi ea. Animi ut voluptatibus voluptates aspernatur alias amet inventore id voluptate. Magni, nam ipsam dicta eveniet reiciendis nesciunt voluptas iure harum quis provident minima totam mollitia est fuga beatae aut ducimus deleniti iusto atque explicabo. Earum, perspiciatis mollitia illum necessitatibus perferendis iusto dolores eos? Minima, labore sunt mollitia impedit voluptatum nobis non reprehenderit ratione voluptates! Ipsam recusandae velit eveniet aliquam, ea totam in soluta facere?</p>
+
+    <div id="form">
+        <form action="http://localhost:5500/SimpleForm.html" method="POST">
+            <fieldset>
+                <legend>Formularz zgłoszeniowy</legend>
+                <fieldset>
+                    <legend>Dane osobowe</legend>
+
+                    <div>
+                        <label for="imie">Imię:</label>
+                        <input type="text" id="imie" name="imie" placeholder="np. Jan" required>
+
+                        <label for="nazwisko">Nazwisko:</label>
+                        <input type="text" id="nazwisko" name="nazwisko" placeholder="np. Kowalski" required>
+                    </div>
+
+                    <br>
+
+                    <div>
+                        <label for="wiek">Wiek:</label>
+                        <input type="number" id="wiek" name="wiek" min="1" max="100" value="18" required>
+
+                        <label for="plec-select">Płeć:</label>
+                        <select name="plec" id="plec-select" required>
+                            <option value="" disabled selected>--Wybierz płeć--</option>
+                            <option value="K">Kobieta</option>
+                            <option value="M">Mężczyzna</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Aplikacja na wybrane stanowisko</legend>
+
+                    <div>
+                        <label for="stanowisko-select">Stanowisko:</label>
+                        <select name="stanowisko" id="stanowisko-select" required>
+                            <option value="" disabled selected>--Wybierz stanowisko--</option>
+                            <option value="junior">Programista Junior</option>
+                            <option value="mid">Programista Mid</option>
+                            <option value="senior">Programista Senior</option>
+                        </select>
+                    </div>
+
+                    <br>
+
+                    <div>
+                        <span>Dostępność:</span>
+                        <input type="radio" id="pelny_etat" name="dostepnosc" value="pelny_etat" checked>
+                        <label for="pelny_etat">Pełny etat</label>
+                        <input type="radio" id="pol_etatu" name="dostepnosc" value="pol_etatu">
+                        <label for="pol_etatu">Pół etatu</label>
+                    </div>
+
+                    <div>
+                        <p>Znajomość języków programowania:</p>
+                        <input type="checkbox" id="csharp" name="jezyki" value="csharp">
+                        <label for="csharp">C#</label>
+
+                        <input type="checkbox" id="java" name="jezyki" value="java">
+                        <label for="java">Java</label>
+
+                        <input type="checkbox" id="python" name="jezyki" value="python">
+                        <label for="python">Python</label>
+                    
+                        <input type="checkbox" id="javascript" name="jezyki" value="javascript">
+                        <label for="javascript">JavaScript</label>
+                    
+                        <input type="checkbox" id="cpp" name="jezyki" value="cpp">
+                        <label for="cpp">C++</label>
+                    </div>
+
+                    <br>
+
+                    <div>
+                        <label for="cv">Załącz CV w pdf:</label>
+                        <input type="file" id="cv" name="cv" accept=".pdf">
+                    </div>
+
+                    <div>
+                        <label for="uwagi">Dodatkowe uwagi:</label><br>
+                        <textarea name="uwagi" id="uwagi" cols="45" rows="10" placeholder=""></textarea>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="zgoda" name="zgoda" required>
+                        <label for="zgoda">Wyrażam zgodę na przetwarzanie moich danych osobowych</label>
+                    </div>
+                </fieldset>
+
+                <br>
+
+                <div>
+                    <button type="submit">Wyślij</button>
+                    <button type="reset">Wyczyść</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus quo voluptas cupiditate, sunt sit molestias velit, atque consequatur doloribus magni reiciendis esse nihil recusandae ipsum consequuntur! Aperiam, reiciendis adipisci inventore quae necessitatibus corporis. Animi adipisci itaque veritatis exercitationem libero harum qui? Doloribus ipsum ipsa numquam voluptatum dicta vel quisquam illum, est culpa, ad totam cupiditate sit obcaecati incidunt sapiente. Esse, iusto tempore. Veritatis praesentium aspernatur, nemo inventore tenetur deleniti harum blanditiis quisquam dicta quaerat dolor. Soluta expedita veniam, fugiat animi, saepe quis explicabo molestiae incidunt, hic voluptatibus dolorem voluptates! Ipsam harum dolorem deleniti dolores nisi! Atque iusto quam ducimus asperiores similique numquam cupiditate omnis voluptatum inventore saepe id ea sint sit recusandae maxime animi repellat itaque laborum esse minima, nisi cum molestiae tenetur? Veniam, veritatis at? Optio doloremque debitis eveniet, laudantium aliquid cumque exercitationem totam, amet quidem aperiam assumenda dolore aliquam nisi! Aliquam fugit voluptatum deleniti, alias non deserunt ipsa recusandae necessitatibus! Nisi, deleniti! Quo, aliquid, architecto tenetur ullam cum expedita delectus ut voluptate ipsam neque praesentium eius nostrum eveniet a sint laborum quod minus vero quos hic nisi quibusdam provident asperiores porro? Omnis, molestias? Incidunt ratione culpa beatae exercitationem eaque. Quasi porro corrupti iure suscipit laudantium! Soluta nihil, aperiam expedita molestiae impedit doloribus, nemo excepturi ipsam modi, ad rem labore numquam quia dolore eius deleniti amet quod iste voluptas illo corporis. Ipsa sed quod dolore molestiae ut veniam totam et nesciunt distinctio culpa, voluptatum, perspiciatis perferendis ullam magnam. Molestias dolorem laudantium optio repellat dignissimos enim vitae tenetur, quis voluptate ipsa aut provident fugiat quia laboriosam quasi ea minus cum ducimus animi quae reprehenderit saepe accusantium. Ratione consectetur laudantium tempore laboriosam iste similique nostrum praesentium architecto? Minima doloribus officia labore numquam sit commodi at quos ab architecto est nisi, aut velit illum quia distinctio natus voluptatum perspiciatis rerum, debitis eaque autem modi accusantium facilis ipsa. Illum porro reprehenderit, dolorem fuga totam aspernatur perspiciatis nam suscipit minima voluptates iusto quas, vel error quod, quis et excepturi eum rem laudantium maxime nisi. Facilis voluptatem dicta similique quasi eius voluptates fugit dolorem, officiis dolor aut ipsa quo ad perspiciatis totam explicabo consectetur iure iusto quae. Quaerat, vero corporis. Assumenda, neque minus est corporis suscipit non facilis officiis, unde deleniti error maxime sunt quam? Voluptate dolorum nobis velit ratione explicabo distinctio ipsum dolores autem in repellat? Maiores dolor facilis mollitia architecto dolores, quae sed ad explicabo veniam quasi inventore perferendis itaque? Harum optio nostrum quae facere ad praesentium dolorem cumque labore ratione similique explicabo dignissimos, cupiditate fugit quasi maxime natus iure suscipit impedit aperiam sed illum commodi libero rem necessitatibus! Dolorum illo quaerat earum repellendus, ullam quis qui totam quo ut assumenda quae iste veritatis aliquid vel nobis magnam recusandae molestias hic ipsum? Modi natus libero perspiciatis. Nobis dolore animi quidem tempora voluptatum consectetur non fugit voluptas, odit ratione officiis quos pariatur ducimus numquam molestiae explicabo repellat in nam nihil magnam adipisci veniam? Totam accusamus, debitis velit soluta quasi, a voluptas commodi excepturi aut laboriosam sed fuga ratione! Provident omnis, tempora quis est, architecto quas eos doloribus alias dicta dolore explicabo exercitationem, iste cupiditate. Repellat consectetur, quae repellendus minima autem reiciendis placeat nostrum ipsam enim esse dicta rem excepturi itaque harum modi est alias odio eaque ex qui dolorem quod saepe? Incidunt tenetur corrupti voluptatem eaque atque consequatur sed, est, recusandae ut voluptatibus, sint itaque accusantium. Doloremque, ipsa beatae. Laboriosam nesciunt quod animi eius? Eum ea nihil quisquam vitae mollitia commodi autem cupiditate veniam! Tempore neque deleniti quam ab ipsum, eaque necessitatibus nemo nisi animi perferendis iure quaerat itaque ducimus alias minima totam voluptatum? Facilis vero veniam pariatur assumenda, aspernatur et odio deserunt. Tempore reiciendis labore numquam, minima iure aspernatur. Perspiciatis, non velit. Beatae cupiditate ipsum dignissimos, nostrum cumque, nulla illo voluptates reprehenderit alias error distinctio ea quisquam ullam, similique dolores possimus neque quasi. Modi, tenetur recusandae. Eum dolore alias, iste qui omnis pariatur magnam. Vero modi accusantium quia expedita possimus quisquam itaque tenetur, fugiat, dignissimos quam veniam aliquam similique. Mollitia deleniti distinctio itaque quaerat sapiente ratione expedita, impedit quia deserunt, iure, magni ad necessitatibus nostrum sequi ducimus quam quo facere dolores error? In maiores eum similique officia ad repellat aliquid ratione doloremque necessitatibus! Aut culpa iure ex autem facere numquam veritatis, labore tempora aperiam quisquam reprehenderit, tenetur dolore molestiae officiis delectus, ut consequatur quae. Illum quae facere aliquid ipsam maiores sint assumenda, praesentium sit doloremque aut illo. Corrupti hic ut, tenetur magnam officiis quaerat aliquam quos, impedit sapiente, aliquid molestias commodi quia architecto. In explicabo itaque tempore perferendis neque ipsam reiciendis iure? Sint cupiditate provident sit veniam expedita sapiente iusto consectetur itaque facilis molestiae quos nostrum doloribus eveniet, totam, incidunt inventore tempore voluptate error dolorem porro velit beatae labore? Cumque itaque dolorem quibusdam dolor vitae ut? Similique cupiditate ea unde voluptate. Ea, magnam animi voluptates cupiditate optio eveniet libero provident alias voluptate inventore adipisci eum est nam, maiores eos. Iure quam aliquam suscipit et omnis, non nihil atque assumenda sint ut quia vitae sed maxime recusandae quaerat perferendis! Dignissimos, modi laudantium! Facere, iste voluptatem inventore deserunt fugiat dolor alias ab dicta pariatur cumque. Culpa nulla ea corrupti accusamus exercitationem quidem consequuntur pariatur repudiandae iure debitis, ad quisquam? Necessitatibus error neque atque debitis sint, reprehenderit enim quam at eligendi. Atque autem praesentium laborum perferendis. Deleniti itaque eaque eum maxime ut inventore consectetur? Quidem dolores rerum aliquam deserunt ipsam? Quae, exercitationem optio. Cum quas nostrum accusantium ipsa quasi officia id doloremque, sit soluta, non at voluptatum sunt perspiciatis vitae reiciendis culpa ullam nisi repellat accusamus possimus sapiente, consectetur reprehenderit dolorem nesciunt? Sint officia corporis adipisci deleniti, eligendi commodi. Reiciendis dolor ullam consequatur omnis quis, dolorem placeat molestiae consequuntur perspiciatis minima aspernatur labore, incidunt id aperiam doloremque architecto nostrum quaerat delectus? Sed quae tempora non quia sit, quibusdam consequuntur molestias in, perferendis perspiciatis hic ipsa temporibus. Qui minus porro suscipit velit nostrum vero temporibus nesciunt placeat repudiandae, iure eos laboriosam aliquid quidem, commodi animi praesentium, similique eligendi incidunt quasi laudantium! Beatae tempore recusandae vero odio blanditiis, tenetur architecto? Odio praesentium corporis dicta, quaerat commodi qui aliquam.</p>
+    
+    <footer>
+        <p>Tu jest footer</p>
+        <a href="index.html">Początek strony</a>
+        <a href="#lists">Listy</a>
+        <a href="#table">Tabela</a>
+        <a href="#form">Formularz</a>
+    </footer>
+
+</body>
+</html>

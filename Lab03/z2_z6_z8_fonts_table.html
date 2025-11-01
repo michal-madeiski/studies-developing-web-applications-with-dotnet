@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fonts</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/284ce6cf18.js" crossorigin="anonymous"></script>
+
+    <style>
+        div.z1 p.in_head {
+            font-size: 20pt;
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <i class="fa-solid fa-bars"></i>
+        <ul>
+            <li><a href="z2_z6_z8_fonts_table.html">fonts</a>
+                <p>You are here!</p>
+            </li>
+            <li><a>other</a>
+                <ul>
+                    <li><a href="z3_bgc_img.html">bgc image</a></li>
+                    <li><a href="z5_z7_box_model.html">box model</a></li>
+                </ul>
+            </li>
+            <li><a>PWr</a>
+                <ul>
+                    <li><a href="https://eportal.pwr.edu.pl/my/courses.php">EPortal</a></li>
+                </ul>
+            </li>
+            <li><a href="https://validator.w3.org/">HTML Validator</a></li>
+        </ul>
+    </nav>
+
+    <div class="z1">
+        <h1 style="color: rgb(27, 3, 75); background-color: rgb(163, 220, 251);">DotNet - Laboratoria nr3 - kolory w inline</h1>
+        <p class = "in_head">INFO: ten div ma czcionke 16px - stylowane w head - czcionka drukarska</p>
+        <p>INFO: to p ma czcionke 32px - 2em</p>
+        <p>INFO: to p ma czcionke 32px - 200% - % (działa jak em)</p>
+    </div>
+
+    <div class="z8">
+        <table>
+            <thead>
+                <tr>
+                    <th>CZAS</th>
+                    <th>PON</th>
+                    <th>WT</th>
+                    <th>ŚR</th>
+                    <th>CZW</th>
+                    <th>PT</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td class="hour">8:00 - 8:45</td>
+                    <td>Matematyka</td>
+                    <td>Biologia</td>
+                    <td>Chemia</td>
+                    <td></td>
+                    <td>Fizyka</td>
+                </tr>
+
+                <tr>
+                    <td class="hour">8:45 - 8:50</td>
+                    <td colspan="5" class="break">Przerwa I</td>
+                </tr>
+
+                <tr>
+                    <td class="hour">8:50 - 9:35</td>
+                    <td rowspan="3">Wf</td>
+                    <td>Angielski</td>
+                    <td>Matematyka</td>
+                    <td>Niemiecki</td>
+                    <td>Polski</td>
+                </tr>
+
+                <tr>
+                    <td class="hour">9:35 - 9:45</td>
+                    <td colspan="4" class="break">Przerwa II</td>
+                </tr>
+
+                <tr>
+                    <td class="hour">9:45 - 10:30</td>
+                    <td>Angielski</td>
+                    <td>Matematyka</td>
+                    <td>Angielski</td>
+                    <td>Polski</td>
+                </tr>
+
+                <tr>
+                    <td class="hour">10:30 - 10:45</td>
+                    <td colspan="5" class="break">Przerwa III</td>
+                </tr>
+
+                <tr>
+                    <td class="hour">10:45 - 11:30</td>
+                    <td>Polski</td>
+                    <td>Niemiecki</td>
+                    <td></td>
+                    <td>Historia</td>
+                    <td>Informatyka</td>
+                </tr>
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <td colspan="6">Plan Lekcji - ROK SZKOLNY 2025/2026</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</body>
+</html>

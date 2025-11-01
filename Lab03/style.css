@@ -1,0 +1,358 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background-color: beige;
+}
+
+/* Z3 ---------------------------------------------------------------------------------------- */
+div.z1 {
+    font-size: 16px;
+    background-color: aquamarine;
+}
+
+h1 {
+    font-size: 4rem;
+    letter-spacing: 3px;
+    word-spacing: 6px;
+    text-align: center;
+    text-decoration: underline;
+    font-style: italic;
+    text-transform: uppercase;
+    line-height: 64px;
+    color: rgb(77, 21, 188);
+    background-color: rgb(188, 230, 253);
+}
+
+div.z1 p {
+    font-size: 2em;
+    color: rgb(1, 1, 49);
+    background-color: rgb(139, 182, 231);
+    margin: 10px 0;
+}
+
+div.z1 p:last-child {
+    font-size: 200%;
+    font-weight: 900;
+    padding: 20px;
+    background-color: rgb(143, 245, 254);
+}
+/* Z1 ---------------------------------------------------------------------------------------- */
+
+/* Z3 ---------------------------------------------------------------------------------------- */
+div.z3 p {
+    font-size: 2rem;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+div.repeat {
+    height: 50vh;
+    background-image: url('img/cars_small.png');
+    background-repeat: repeat;
+}
+
+div.fixed {
+    height: 50vh;
+    background-image: url('img/car.jpg'), url('img/cars_small.png');
+    background-repeat: no-repeat, repeat;
+    background-attachment: fixed, scroll;
+    background-position: center center;
+}
+
+div.cover {
+    height: 50vh;
+    width: 50vw;
+    margin: 0 auto;
+    background-image: url('img/car.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+
+}
+
+div.contain {
+    height: 50vh;
+    width: 50vw;
+    margin: 0 auto;
+    background-image: url('img/car.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: gold;
+    background-position: right bottom;
+}
+
+div.z3 {
+    margin-bottom: 20px;
+}
+/* Z3 ---------------------------------------------------------------------------------------- */
+
+/* Z5 ---------------------------------------------------------------------------------------- */
+#bigbox {
+    height: 250vh;
+    background-color: lightgray;
+    position: relative;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+#bigbox div {
+    width: 200px;
+    height: 200px;
+    opacity: 75%;
+    border: 20px solid red;
+    margin: 20px;
+    padding: 20px;
+    font-size: 20px;
+    outline: 10px solid blue;
+    background-color: #fff;
+}
+
+#bigbox .float {
+    float: left;
+}
+
+#bigbox .f1 {
+    border-style: dashed;
+    border-radius: 25%;
+}
+
+#bigbox .f2 {
+    outline-style: dotted;
+}
+
+#bigbox .rel {
+    position: relative;
+    top: 50px;
+    left: 50px;
+    border-style: inset;
+}
+
+#bigbox .abs {
+    position: absolute;
+    top: 350px;
+    left: 175px;
+    border-style: ridge;
+}
+
+#bigbox .fix {
+    position: fixed;
+    top: 20px;
+    right: 250px;
+    border-style: groove;
+}
+
+#bigbox .norm {
+    border-style: outset;
+}
+
+#bigbox .sticky {
+    position: sticky;
+    top: 50px;
+    border-style: double;
+    background-color: lightblue;
+}
+/* Z5 ---------------------------------------------------------------------------------------- */
+
+/* Z8 ---------------------------------------------------------------------------------------- */
+div.z8 {
+    margin-top: 25px;
+}
+
+table {
+    width: 75%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    text-align: center;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 200px;
+    margin-bottom: 50px;
+}
+
+table th {
+    padding: 5px 0;
+    background-color: #383838;
+    color: #f4f9fa;
+    font-size: 1.5rem;
+    border: 5px solid #383838;
+}
+
+table td {
+    padding: 8px 0;
+    background-color: #b0f0fd;
+    color: #00445f;
+    font-size: 1.25rem;
+    border: 2.5px solid #026d98;
+}
+
+table tfoot td {
+    background-color: #383838;
+    color: #f4f9fa;
+    font-size: 1.4rem;
+    border: 5px solid #383838;
+    font-weight: bold;
+}
+
+table tbody tr:nth-child(1) td {
+    border-top: 5px solid #383838;
+}
+
+table td:not(.hour) {
+    font-style: italic;
+}
+
+table td:not(.hour)::selection {
+    color: black;
+    background-color: #fff;
+}
+
+table td:not(.break) {
+    font-weight: thin;
+}
+
+table .hour, .break {
+    font-weight: bold;
+    font-size: 1.35rem;
+}
+
+table tbody tr:last-child td {
+    border-bottom: 5px solid #383838;
+}
+
+table tbody tr td:nth-of-type(1) {
+    border-left: 5px solid #383838;
+}
+
+table tbody tr td:last-of-type {
+    border-right: 5px solid #383838;
+}
+/* Z8 ---------------------------------------------------------------------------------------- */
+
+/* Z10 ---------------------------------------------------------------------------------------- */
+nav ul {
+    width: 13vw;
+    display: none;
+    top: 58px;
+    right: 50px;
+    position: absolute;
+    z-index: 10;
+    box-sizing: border-box;
+    border: 2px solid black;
+}
+
+a+ul {
+    top: 55px;
+    right: 100px;
+}
+
+nav ul li:nth-child(3) ul {
+    top: 82px;
+    right: 100px;
+}
+
+nav ul li::marker {
+    font-size: 20px;
+    content: "👉"
+}
+
+nav ul li:hover {
+    cursor: pointer;
+}
+
+li {
+    background-color: rgb(235, 235, 235);
+}
+
+nav ul li:not(:last-child) {
+    border-bottom: 1px solid gray;
+}
+
+li a {
+    font-style: italic;
+    font-size: 20px;
+    line-height: 25px;
+    text-decoration: none;
+    text-transform: capitalize;
+    margin: 10px;
+    background-color: rgb(235, 235, 235);
+    color: black;
+}
+
+li a:hover {
+    color: blue;
+}
+
+li:hover, li:hover a {
+    background-color: #fff;
+}
+
+i {
+    font-size: 45px;
+    cursor: pointer;
+    position: fixed;
+    right: 10px;
+    top: 7.5px;
+    border-radius: 10px;
+    background-color: lightgray;
+    opacity: 0.8;
+    z-index: 10;
+    transition: 0.1s;
+}
+
+nav:hover i+ul {
+    display: block;
+}
+
+ul li:hover a+ul {
+    display: block;
+}
+
+ul li:hover ul+ul {
+    display: block;
+}
+
+ul li:hover a+ul li a {
+    background-color: rgb(235, 235, 235);
+}
+
+ul li:hover a+ul li:hover a {
+    background-color: #fff;
+}
+
+nav:hover i {
+    font-size: 55px;
+}
+
+nav ul li p {
+    display: none;
+    color: black;
+    font-size: 12px;
+    text-align: right;
+    vertical-align: top;
+    background-color: #fff;
+    margin-bottom: 10px;
+
+}
+
+nav ul li:hover p {
+    display: inline;
+}
+
+nav ul li:nth-child(2):hover a:not(:last-child) {
+    color: black;
+}
+
+nav ul li:nth-child(3):hover a:not(:last-child) {
+    color: black;
+}
+/* Z10 ---------------------------------------------------------------------------------------- */
