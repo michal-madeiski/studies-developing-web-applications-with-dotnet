@@ -1,4 +1,4 @@
-# Developing Web Applications with .NET  - laboratory classes
+# Developing Web Applications with .NET - laboratory classes
 __stage of studies: 3rd year, 5th semester__
 
 Each lab class dir contains an implementation of tasks about the given topic.

@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    font-size: 40px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 10px;
+    text-align: center;
+    background-color:#CEB8A7;
+    height: 8vh;
+}
+
+p {
+    font-size: 20px;
+    text-align: center;
+    font-style: italic;
+    padding-bottom: 20px;
+}
+
+p.lorem {
+    margin: 50px;
+}
+
+div.separator {
+    height: 0.5vh;
+    background-color: #383D53;
+}
+
+div.tableWrapper {
+    padding-top: 30px;
+    background-image: linear-gradient(#CEB8A7, #383D53);
+    padding-bottom: 20px;
+    min-height: 91.5vh;
+}
+
+div.canvasWrapper {
+    padding-top: 30px;
+    background-image: linear-gradient(#383D53, #CEB8A7);
+    padding-bottom: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    border: 4px solid black;
+    table-layout: fixed;
+}
+
+td, th {
+    border: 2px solid black;
+    padding: 15px;
+    font-size: 15px;
+    background-color: #D9C2A7;
+    text-align: center;
+    width: 60px;
+}
+
+th {
+    background-color: #F2E6D8;
+}
+
+td.odd {
+    background-color: #BFA07A;
+}
+
+canvas.drawingX {
+    background-color: #fff;
+    border: 2px solid black;
+    width: 50vw;
+    height: 30vh;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 250px;
+}
+
+canvas.drawingX:nth-child(2) {
+    width: 300px;
+    height: 150px;
+}
+
+canvas.drawingX:nth-child(3) {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    left: 100px;
+    top: 500px;
+}
