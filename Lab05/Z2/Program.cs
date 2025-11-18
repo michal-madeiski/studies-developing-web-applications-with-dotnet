@@ -1,4 +1,4 @@
-namespace Z2;
+namespace z2;
 
 public class Program
 {

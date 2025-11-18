@@ -8,5 +8,6 @@ Each lab class dir contains an implementation of tasks about the given topic.
 * Lab03 - basics of css
 * Lab04 - basics of javascript
 * Lab05 - introduction to c# and .net
+* Lab06 - basics of c#
 
 _Lab[number] is a one-week homework assignment._
