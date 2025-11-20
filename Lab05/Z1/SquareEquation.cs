@@ -28,11 +28,11 @@
         return factor;
     }
 
-    static double[] SolveSquareEquation(double a, double b, double c)
+    static double[]? SolveSquareEquation(double a, double b, double c)
     {
         if (a == 0 && b == 0 && c == 0)
         {
-            return new double[0];
+            return null;
         }
         else if (a == 0 && b == 0 && c != 0)
         {
@@ -65,13 +65,17 @@
         }
     }
 
-    static void DisplaySolution(double[] xArray)
+    static void DisplaySolution(double[]? xArray)
     {
 
         Console.Write("ROZWIĄZANIE: ");
-        if (xArray.Length == 0)
+        if (xArray == null)
         {
-            Console.Write("brak lub nieskończenie wiele rozwiązań\n");
+            Console.Write("nieskończenie wiele rozwiązań\n");
+        }
+        else if (xArray.Length == 0)
+        {
+            Console.Write("brak rozwiązań\n");
         }
         else if (xArray.Length == 1)
         {
