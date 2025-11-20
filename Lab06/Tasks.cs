@@ -13,7 +13,7 @@
         var person2 = new {name = "Michał", surname = "Madeiski", age = 21, wage = 1000};
         PrintSeparator(4, true); PrintAnonymous(person2); PrintSeparator(4, false);
 
-        PrintSeparator(5, true); DrawCard("Michał", "Madeiski"); PrintSeparator(5, false);
+        PrintSeparator(5, true); DrawCard("Michał", "Madeiski", min_width: 10); PrintSeparator(5, false);
 
         PrintSeparator(6, true); PrintCountMyTypes(CountMyTypes(1, 2, 4, 3.2, -2.8, "abc", "abcde", 'x', 10, new int[] {1, 2, 3})); PrintSeparator(6, false);
     }
