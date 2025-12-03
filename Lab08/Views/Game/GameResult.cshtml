@@ -1,0 +1,35 @@
+@{
+    ViewBag.Title = "Gra - zgadywanka";
+}
+
+<div class="game">
+    <h1>Gra - zgadywanka</h1>
+    <h3 class=@ViewBag.cssClass>@ViewBag.message</h3>
+    @if (@ViewBag.messageResult != null)
+    {
+        <p class=@ViewBag.cssClass>@ViewBag.messageResult</p>
+    }
+    <p class=@ViewBag.cssClass>@ViewBag.messageCount</p>
+    <p>@ViewBag.rand</p>
+</div>
+
+<div class="wrapper">
+    <div class="instruction">
+        <h2>Instrukcja:</h2>
+        <p>
+            <a href="/Draw" class="btn btn-primary">Wylosuj nową liczbę (/Draw)</a>
+        </p
+        <p>
+            Przykładowe ustawienia zakresu liczb: <a href="/Set,5" class="btn btn-info">Ustaw 5</a> <a href="/Set,20" class="btn btn-dark">Ustaw 20</a>
+        </p>
+        <p><small>Aby ustawić własny zakres liczb wpisz na koniec adresu: <code>Set,LICZBA</code></small></p>
+        <p>
+            Przykładowe ustawienia próby zgadnięcia liczby: <a href="/Guess,5" class="btn btn-danger">Zgadnij 5</a> <a href="/Guess,15" class="btn btn-warning">Zgadnij 10</a>
+        </p>
+        <p><small>Aby ustawić własną próbę zgadnięcia liczby wpisz na koniec adresu: <code>Guess,LICZBA</code></small></p>
+    </div>
+
+    <p>
+        <a href="/">Powrót do strony głównej</a>
+    </p>
+</div>

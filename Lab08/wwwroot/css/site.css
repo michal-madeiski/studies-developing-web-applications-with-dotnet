@@ -1,0 +1,91 @@
+html {
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.equation-box, .solution-box, .instruction {
+  padding: 8px 6px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  width: 500px;
+  background-color: beige;
+}
+
+.solution-box {
+  background-color: rgb(201, 247, 231);
+  font-size: 20px;
+}
+
+p.zero-sol {
+  color: red;
+  text-decoration: line-through;
+}
+
+p.one-sol {
+  color: green;
+}
+
+p.two-sol {
+  color: rgb(54, 47, 255);
+  font-weight: bold;
+}
+
+p.inf-sol {
+  color: purple;
+  font-style: italic;
+}
+
+.game h1 {
+  margin-bottom: 12px;
+}
+
+.game .set {
+  color: blueviolet;
+}
+
+.game .draw {
+  color: orange;
+}
+
+.game .correct {
+  color: green;
+  font-weight: bold;
+}
+
+.game .incorrect {
+  color: red;
+  font-style: italic;
+}
+
+.wrapper {
+  position: absolute;
+  top: 250px;
+}
+
+.instruction {
+  width: 600px;
+}
+
+.instruction h2 {
+  text-decoration: underline;
+  padding-bottom: 10px;
+}
