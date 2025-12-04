@@ -8,7 +8,20 @@
     <p class=@ViewBag.cssClass>Opis: @ViewBag.message</p>
 </div>
 <div class="solution-box">
-    <p class=@ViewBag.cssClass>Rozwiązanie - @ViewBag.solution</p>
+    @if (@ViewBag.x != null)
+    {
+        <p class=@ViewBag.cssClass>Rozwiązanie - @ViewBag.solution: @ViewBag.x</p>
+    }
+
+    @if (@ViewBag.x1 != null && @ViewBag.x2 != null)
+    {
+        <p class=@ViewBag.cssClass>Rozwiązanie: @ViewBag.solution@ViewBag.x1 x2=@ViewBag.x2</p>
+    }
+
+    @if (@ViewBag.x == null && @ViewBag.x1 == null && @ViewBag.x2 == null)
+    {
+        <p class=@ViewBag.cssClass>Rozwiązanie: @ViewBag.solution</p>
+    }
 </div>
 
 <p>

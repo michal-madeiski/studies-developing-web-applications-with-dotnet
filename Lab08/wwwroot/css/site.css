@@ -89,3 +89,8 @@ p.inf-sol {
   text-decoration: underline;
   padding-bottom: 10px;
 }
+
+.error {
+  font-family: 'Times New Roman', serif;
+  color: red;
+}

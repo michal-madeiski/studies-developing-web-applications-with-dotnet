@@ -12,24 +12,39 @@ public class GameController : Controller
     public IActionResult Set(int n=10)
     {
         _n = n;
-        _randValue = _random.Next(0, _n);
-        _counter = 0;
-        ViewBag.cssClass = "set";
-        ViewBag.message = $"Ustawiono zakres losowania: od 0 do {_n-1} włącznie.";
-        ViewBag.messageCount = $"Liczba prób została wyzerowana.";
-        //ViewBag.rand = _randValue;
+        if (_n <= 0)
+        {
+            ViewBag.message = $"Niepoprawny zakres losowania!";
+            ViewBag.cssClass = $"error";
+        } else
+        {
+            _randValue = _random.Next(0, _n);
+            _counter = 0;
+            ViewBag.cssClass = "set";
+            ViewBag.message = $"Ustawiono zakres losowania: od 0 do {_n - 1} włącznie.";
+            ViewBag.messageCount = $"Liczba prób została wyzerowana.";
+            //ViewBag.rand = _randValue;
+        }
         return View("GameResult");
     }
 
     [Route("Draw")]
     public IActionResult Draw()
     {
-        _randValue = _random.Next(0, _n);
-        _counter = 0;
-        ViewBag.cssClass = "draw";
-        ViewBag.message = $"Wylosowano nową tajemniczą liczbę.";
-        ViewBag.messageCount = $"Liczba prób została wyzerowana, zakres to: od 0 do {_n - 1} włącznie.";
-        //ViewBag.rand = _randValue;
+        if (_n <= 0)
+        {
+            ViewBag.message = $"Niepoprawny zakres losowania!";
+            ViewBag.cssClass = $"error";
+        } else
+        {
+            _randValue = _random.Next(0, _n);
+            _counter = 0;
+            ViewBag.cssClass = "draw";
+            ViewBag.message = $"Wylosowano nową tajemniczą liczbę.";
+            ViewBag.messageCount = $"Liczba prób została wyzerowana, zakres to: od 0 do {_n - 1} włącznie.";
+            //ViewBag.rand = _randValue;
+        }
+        
         return View("GameResult");
     }
 
