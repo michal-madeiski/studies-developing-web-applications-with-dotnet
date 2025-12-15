@@ -11,5 +11,7 @@ Each lab class dir contains an implementation of tasks about the given topic.
 * Lab06 - basics of c#
 * Lab07 - linq queries and reflection in c#
 * Lab08 - routing and basic views of the razor engine in asp.net
+* Lab09 - models, views, layouts and razor engine in asp.net
+* Lab10 - entity framework
 
 _Lab[number] is a one-week homework assignment._
