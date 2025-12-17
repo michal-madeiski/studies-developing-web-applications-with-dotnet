@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Lab10.Models.Article>
+
+@{
+    ViewData["Title"] = "Index";
+    var categories = ViewBag.Categories as IEnumerable<Lab10.Models.Category>;
+    var selectedId = ViewBag.SelectedCategoryId as int?;
+}
+
+<h1>Shop</h1>
+
+<form method="get">
+    <select name="cat_id" onchange="this.form.submit()" class="select-cat">
+        <option value="">-- All Categories --</option>
+        @if (categories != null)
+        {
+            @foreach (var category in categories)
+            {
+                if (selectedId == category.Id)
+                {
+                    <option value="@category.Id" selected>@category.Name</option>
+                }
+                else
+                {
+                    <option value="@category.Id">@category.Name</option>
+                }
+            }
+        }
+    </select>
+</form>
+
+@{
+    await Html.RenderPartialAsync("_ArticleGrid");
+}

@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Lab10.Models.Article>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Articles</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New</a>
+</p>
+
+@{
+    await Html.RenderPartialAsync("_ArticleGrid");
+}

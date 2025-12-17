@@ -14,7 +14,7 @@ namespace Lab09.Models
 
         [Required]
         [DataType(DataType.Currency)]
-        [Range(0.01, 10000.00, ErrorMessage = "Price must be positive number.")]
+        [Range(0.01, 10000.00, ErrorMessage = "Price must between {1} and {2}.")]
         public decimal Price { get; set; }
 
         [DataType(DataType.Date)]
