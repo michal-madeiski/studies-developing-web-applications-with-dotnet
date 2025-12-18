@@ -31,7 +31,7 @@
             <div class="form-group row">
                 <label class="col-form-label">Photo</label>
                 <div style="margin-bottom: 10px">
-                    <input asp-for="FormImage" class="form-control custom-file-input" onchange="previewFile(event)" />
+                    <input asp-for="FormImage" class="form-control custom-file-input" onchange="previewFile(event)" accept=".jpg, .jpeg, .png, .gif, .webp, .svg" />
                 </div>
                 <img id="preview" />
             </div>
