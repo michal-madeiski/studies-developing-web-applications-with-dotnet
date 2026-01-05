@@ -2,9 +2,27 @@ using Microsoft.AspNetCore.Mvc;
 
 public class GameController : Controller
 {
-    private static int _n;
-    private static int _randValue;
-    private static int _counter = 0;
+    //private static int _n;
+    private int _n
+    {
+        get => HttpContext.Session.GetInt32("_n") ?? 10;
+        set => HttpContext.Session.SetInt32("_n", value);
+    }
+
+    //private static int _randValue;
+    private int _randValue
+    {
+        get => HttpContext.Session.GetInt32("_randValue") ?? 10;
+        set => HttpContext.Session.SetInt32("_randValue", value);
+    }
+
+    //private static int _counter = 0;
+    private int _counter
+    {
+        get => HttpContext.Session.GetInt32("_counter") ?? 0;
+        set => HttpContext.Session.SetInt32("_counter", value);
+    }
+
     private static Random _random = new Random();
 
     [Route("Set")]
