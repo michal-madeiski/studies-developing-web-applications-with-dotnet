@@ -1,0 +1,42 @@
+﻿@page
+@model Lab11.Pages.Articles.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Article.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Article.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Article.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Article.Price)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Article.Category)
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Article.Category?.Name
+        </dd>
+        <dt class="col-sm-2">
+            <span>Photo</span>
+        </dt>
+        <dd class="col-sm-10">
+            <partial name="_ArticleImage" model="Model.Article" />
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model?.Article.Id" class="btn btn-primary">Edit</a>
+    <a asp-page="./Index" class="btn btn-warning">Back to List</a>
+</div>

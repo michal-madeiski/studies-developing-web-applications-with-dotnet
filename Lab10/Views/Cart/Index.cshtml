@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Lab10.Models.Article>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Cart</h1>
+
+@{
+    await Html.RenderPartialAsync("_ArticleGrid");
+}
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info text-center mt-4">
+        <h3>Your cart is empty!</h3>
+        <a asp-controller="Shop" asp-action="Index" class="btn btn-primary mt-2">Back to the shop</a>
+    </div>
+} else
+{
+    decimal totalPrice = 0;
+    foreach (var item in Model)
+    {
+        var quantities = ViewBag.Quantities as Dictionary<int, int>;
+        if (quantities != null && quantities.ContainsKey(item.Id))
+        {
+            int quantity = quantities[item.Id];
+            totalPrice += item.Price * quantity;
+        }
+
+    }
+    <h4 class="text-end fw-bold mt-4 bg-light p-3 rounded">Total price: @totalPrice zł</h4>
+}

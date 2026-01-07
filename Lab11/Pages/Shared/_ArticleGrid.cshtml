@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Lab11.Models.Article>
+
+<div class="row row-cols-md-3 g-4">
+    @foreach (var item in Model)
+    {
+        <div class="col">
+            <div class="card">
+                <partial name="_ArticleImage"
+                         model="item"
+                         view-data='@new ViewDataDictionary(ViewData) { { "FormImgClass", "card-img-top object-fit-cover grid-img" } }' />
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
+                    <p class="card-text">@Html.DisplayNameFor(modelItem => item.Category): @item.Category?.Name</p>
+                    <p class="card-text">@Html.DisplayNameFor(modelItem => item.Price): @Html.DisplayFor(modelItem => item.Price)</p>
+                    @if (ViewData["ShowButtons"] as bool? == true)
+                    {
+                        <div class="mt-2">
+                            <a asp-page="/Articles/Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                            <a asp-page="/Articles/Details" asp-route-id="@item.Id" class="btn btn-info">Details</a>
+                            <a asp-page="/Articles/Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+</div>

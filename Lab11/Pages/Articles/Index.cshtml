@@ -1,0 +1,14 @@
+﻿@page
+@model Lab11.Pages.Articles.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Articles</h1>
+
+<p>
+    <a asp-page="/Articles/Create" class="btn btn-success">Create New</a>
+</p>
+
+<partial name="_ArticleGrid" model="Model.Article" />

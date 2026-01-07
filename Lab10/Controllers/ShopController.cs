@@ -19,6 +19,7 @@ namespace Lab10.Controllers
         public async Task<IActionResult> Index(int? cat_id)
         {
             ViewData["ShowButtons"] = false;
+            ViewData["ShowCart"] = false;
             ViewBag.Categories = await _context.Categories.ToListAsync();
             ViewBag.SelectedCategoryId = cat_id;
             var articles = _context.Articles.Include(a => a.Category);
@@ -36,6 +37,27 @@ namespace Lab10.Controllers
             }
 
             return View(await articles.ToListAsync());
+        }
+
+        public IActionResult AddToCart(int id, int? cat_id) 
+        {
+            string cookie_key = "article" + id;
+            int cookie_value = 1;
+
+            if (Request.Cookies.ContainsKey(cookie_key))
+            {
+                cookie_value += int.Parse(Request.Cookies[cookie_key] ?? "0");
+            }
+
+            CookieOptions options = new CookieOptions
+            {
+                Expires = DateTime.Now.AddDays(7),
+                IsEssential = true
+            };
+
+            Response.Cookies.Append(cookie_key, cookie_value.ToString(), options);
+
+            return RedirectToAction(nameof(Index), new { cat_id = cat_id });
         }
     }
 }

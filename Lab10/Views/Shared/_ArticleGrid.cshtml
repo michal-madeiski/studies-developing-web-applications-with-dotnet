@@ -20,6 +20,32 @@
                             <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
                         </div>
                     }
+                    else if (ViewData["ShowCart"] as bool? == false)
+                    {
+                        <div class="mt-2">
+                            <a asp-controller="Shop" asp-action="AddToCart" asp-route-id="@item.Id" asp-route-cat_id="@ViewBag.SelectedCategoryId" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    }
+
+                    @if (ViewData["ShowButtons"] as bool? == false && ViewData["ShowCart"] as bool? == true)
+                    {
+                        var quantities = ViewBag.Quantities as Dictionary<int, int>;
+
+                        int quantity = 0;
+
+                        if (quantities != null && quantities.ContainsKey(item.Id))
+                        {
+                            quantity = quantities[item.Id];
+                        }
+
+                        <p class="card-text">Quantity: @quantity</p>
+
+                        <div class="mt-2">
+                            <a asp-controller="Cart" asp-action="Plus" asp-route-id="@item.Id" class="btn btn-success">+</a>
+                            <a asp-controller="Cart" asp-action="Minus" asp-route-id="@item.Id" class="btn btn-warning">-</a>
+                            <a asp-controller="Cart" asp-action="Remove" asp-route-id="@item.Id" class="btn btn-danger">Remove</a>
+                        </div>
+                    }
                 </div>
             </div>
         </div>

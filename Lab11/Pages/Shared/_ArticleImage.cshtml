@@ -1,0 +1,14 @@
+﻿@model Lab11.Models.Article
+
+@{
+    string cssClass = ViewData["FormImgClass"] as string ?? "";
+}
+
+@if (Model.ImageUrl != null)
+{
+    <img src="~/upload/@Model.ImageUrl" alt="Article Photo" class="@cssClass"/>
+}
+else
+{
+    <img src="~/img/image_null.jpg" alt="Default Article Photo" class="@cssClass" />
+}

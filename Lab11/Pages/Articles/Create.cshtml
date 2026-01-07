@@ -1,0 +1,65 @@
+﻿@page
+@model Lab11.Pages.Articles.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+        
+<h1>Create</h1>
+        
+<h4>Article</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form enctype="multipart/form-data" asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Article.Name" class="control-label"></label>
+                <input asp-for="Article.Name" class="form-control" />
+                <span asp-validation-for="Article.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Article.Price" class="control-label"></label>
+                <input asp-for="Article.Price" class="form-control" type="number" step="0.01" />
+                <span asp-validation-for="Article.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Article.Category" class="control-label"></label>
+                <select asp-for="Article.CategoryId" class="form-control" asp-items="ViewBag.CategoryId">
+                    <option value="">-- Select Category --</option>
+                </select>
+            </div>
+            <div class="form-group row">
+                <label class="col-form-label">Photo</label>
+                <div style="margin-bottom: 10px">
+                    <input asp-for="Article.FormImage" class="form-control custom-file-input" onchange="previewFile(event)" accept=".jpg, .jpeg, .png, .gif, .webp, .svg" />
+                </div>
+                <img id="preview" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-success mt-2" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index" class="btn btn-warning mt-2">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<script>
+    var previewFile = function (event) {
+        var reader = new FileReader();
+        reader.onload = function () {
+            var output = document.getElementById('preview');
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    };
+</script>
