@@ -1,6 +1,7 @@
 ﻿using Lab10.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.EntityFrameworkCore;
 
 namespace Lab10.Controllers
 {
@@ -20,6 +21,7 @@ namespace Lab10.Controllers
 
             var cart = new List<Lab10.Models.Article>();
             var quantities = new Dictionary<int, int>();
+            decimal totalPrice = 0;
 
             foreach (var cookie in Request.Cookies)
             {
@@ -27,11 +29,12 @@ namespace Lab10.Controllers
                 {
                     if (int.TryParse(cookie.Value, out int quantity) && int.TryParse(cookie.Key.Substring(7), out int artId))
                     {
-                        var article = _context.Articles.FirstOrDefault(a => a.Id == artId);
+                        var article = _context.Articles.Include(a => a.Category).FirstOrDefault(a => a.Id == artId);
                         if (article != null)
                         {
                             cart.Add(article);
                             quantities.Add(artId, quantity);
+                            totalPrice += article.Price * quantity;
                         }
                         else
                         {
@@ -41,6 +44,7 @@ namespace Lab10.Controllers
                 }
             }
 
+            ViewBag.TotalPrice = totalPrice;
             ViewBag.Quantities = quantities;
             cart = cart.OrderBy(x => x.Name).ToList();
             return View(cart);

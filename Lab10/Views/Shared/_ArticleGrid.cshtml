@@ -10,6 +10,9 @@
                 }
                 <div class="card-body">
                     <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
+                    @* @if (ViewData["ShowButtons"] as bool? == true || ViewData["ShowCart"] as bool? == false) {
+                    <p class="card-text">@Html.DisplayNameFor(modelItem => item.Category): @item.Category?.Name</p>
+                    } *@
                     <p class="card-text">@Html.DisplayNameFor(modelItem => item.Category): @item.Category?.Name</p>
                     <p class="card-text">@Html.DisplayNameFor(modelItem => item.Price): @Html.DisplayFor(modelItem => item.Price)</p>
                     @if (ViewData["ShowButtons"] as bool? == true)
