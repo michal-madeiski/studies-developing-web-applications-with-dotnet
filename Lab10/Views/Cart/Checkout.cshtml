@@ -1,0 +1,116 @@
+﻿@model Lab10.Models.CartViewModel;
+
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Order summary</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Articles[0].Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Articles[0].Category)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Articles[0].Price)
+                </th>
+                <th>
+                    Quantity
+                </th>
+                <th>
+                    Total Price
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Articles)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @item.Category?.Name
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Model.Quantities[item.Id]
+                    </td>
+                    <td>
+                        @((Model.Quantities[item.Id] * item.Price).ToString("C"))
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr class="table-dark">
+                <td colspan="4" class="text-end fw-bold">Total Price:</td>
+                <td class="fw-bold">@Model.TotalPrice.ToString("C")</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Delivery and payment informations</h5>
+                </div>
+                <div class="card-body">
+                    <form asp-action="ConfirmOrder" method="post">
+                        <h6 class="text-muted mb-3">Personal Information</h6>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">First Name</label>
+                                <input type="text" name="firstName" class="form-control" required placeholder="John" />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Last Name</label>
+                                <input type="text" name="lastName" class="form-control" required placeholder="Pork" />
+                            </div>
+                        </div>
+
+                        <h6 class="text-muted mb-3 mt-4">Shipping Address</h6>
+                        <div class="mb-3">
+                            <label class="form-label">Street and House Number</label>
+                            <input type="text" name="address" class="form-control" required placeholder="ExampleStreet 23" />
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Zip Code</label>
+                                <input type="text" name="zipCode" class="form-control" required placeholder="00-000" />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">City</label>
+                                <input type="text" name="city" class="form-control" required placeholder="ExampleCity" />
+                            </div>
+                        </div>
+
+                        <h6 class="text-muted mb-3 mt-4">Payment</h6>
+                        <div class="mb-4">
+                            <label class="form-label">Choose payment method</label>
+                            <select name="paymentMethod" class="form-select" required>
+                                <option value="" disabled selected>-- Select --</option>
+                                <option value="Card">Card</option>
+                                <option value="Blik">BLIK</option>
+                            </select>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-success btn-lg">
+                                Confirm order and pay @Model.TotalPrice.ToString("C")
+                            </button>
+                            <a asp-action="Index" class="btn btn-outline-secondary">Back to cart</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

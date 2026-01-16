@@ -1,5 +1,6 @@
 ﻿using Lab10.Data;
 using Lab10.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace Lab10.Controllers
 {
+    [Authorize(Policy = "AdminRole")]
     public class CategoryController : Controller
     {
         private readonly ShopDbContext _context;

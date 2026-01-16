@@ -1,6 +1,11 @@
-﻿@model IEnumerable<Lab10.Models.Article>
+﻿@using Microsoft.AspNetCore.Identity
 
-<div class="row row-cols-md-3 g-4">
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@model IEnumerable<Lab10.Models.Article>
+
+<div class="row row-cols-md-3 g-4" id="articles-container">
     @foreach (var item in Model)
     {
         <div class="col">
@@ -10,9 +15,6 @@
                 }
                 <div class="card-body">
                     <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
-                    @* @if (ViewData["ShowButtons"] as bool? == true || ViewData["ShowCart"] as bool? == false) {
-                    <p class="card-text">@Html.DisplayNameFor(modelItem => item.Category): @item.Category?.Name</p>
-                    } *@
                     <p class="card-text">@Html.DisplayNameFor(modelItem => item.Category): @item.Category?.Name</p>
                     <p class="card-text">@Html.DisplayNameFor(modelItem => item.Price): @Html.DisplayFor(modelItem => item.Price)</p>
                     @if (ViewData["ShowButtons"] as bool? == true)
@@ -23,10 +25,11 @@
                             <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
                         </div>
                     }
-                    else if (ViewData["ShowCart"] as bool? == false)
+                    else if (ViewData["ShowCart"] as bool? == false && !User.IsInRole("Admin"))
                     {
                         <div class="mt-2">
-                            <a asp-controller="Shop" asp-action="AddToCart" asp-route-id="@item.Id" asp-route-cat_id="@ViewBag.SelectedCategoryId" class="btn btn-primary">Add to Cart</a>
+                            <button class="btn btn-primary" onclick="fetch('/Shop/AddToCart?id=@item.Id')">Add to Cart</button>
+                            @* <a asp-controller="Shop" asp-action="AddToCart" asp-route-id="@item.Id" asp-route-cat_id="@ViewBag.SelectedCategoryId" class="btn btn-primary">Add to Cart</a> *@
                         </div>
                     }
 
@@ -43,11 +46,14 @@
 
                         <p class="card-text">Quantity: @quantity</p>
 
-                        <div class="mt-2">
-                            <a asp-controller="Cart" asp-action="Plus" asp-route-id="@item.Id" class="btn btn-success">+</a>
-                            <a asp-controller="Cart" asp-action="Minus" asp-route-id="@item.Id" class="btn btn-warning">-</a>
-                            <a asp-controller="Cart" asp-action="Remove" asp-route-id="@item.Id" class="btn btn-danger">Remove</a>
-                        </div>
+                        if (ViewData["ShowCartButtons"] as bool? == true)
+                        {
+                            <div class="mt-2">
+                                <a asp-controller="Cart" asp-action="Plus" asp-route-id="@item.Id" class="btn btn-success">+</a>
+                                <a asp-controller="Cart" asp-action="Minus" asp-route-id="@item.Id" class="btn btn-warning">-</a>
+                                <a asp-controller="Cart" asp-action="Remove" asp-route-id="@item.Id" class="btn btn-danger">Remove</a>
+                            </div>
+                        }
                     }
                 </div>
             </div>

@@ -4,6 +4,9 @@
     ViewData["Title"] = "Index";
     var categories = ViewBag.Categories as IEnumerable<Lab10.Models.Category>;
     var selectedId = ViewBag.SelectedCategoryId as int?;
+
+    int initialLastId = Model.Any() ? Model.Last().Id : 0;
+    bool canShop = !User.IsInRole("Admin");
 }
 
 <h1>Shop</h1>
@@ -30,4 +33,82 @@
 
 @{
     await Html.RenderPartialAsync("_ArticleGrid");
+}
+
+<div class="text-center mt-4 mb-5" style="@(initialLastId == 0 ? "display:none;" : "")">
+    <button id="btnLoadMore" class="btn btn-secondary btn-lg" onclick="loadNextArticles()">Load more</button>
+</div>
+
+@section Scripts {
+    <script>
+        let lastId = @initialLastId;
+        const size = 3;
+        const catId = '@selectedId';
+        const canShop = @canShop.ToString().ToLower();
+
+        function loadNextArticles() {
+            const xhr = new XMLHttpRequest();
+            let url = `/api/ArticleApi/GetNext?lastId=${lastId}&size=${size}`;
+
+            if (catId) {
+                url += `&cat_id=${catId}`;
+            }
+
+            xhr.open("GET", url);
+            xhr.onload = function () {
+                if (this.status === 200) {
+                    const articles = JSON.parse(this.responseText);
+                    const container = document.getElementById("articles-container");
+
+                    if (articles.length === 0) {
+                        finish();
+                        return;
+                    }
+
+                    let htmlToAdd = '';
+                    articles.forEach(item => {
+                        let img = item.imageUrl ? `/upload/${item.imageUrl}` : '/img/image_null.jpg';
+                        let btnHtml = '';
+                        if (canShop) {
+                            btnHtml = `
+                                <div class="mt-2">
+                                    <button class="btn btn-primary" onclick="fetch('/Shop/AddToCart?id=${item.id}')">Add to Cart</button>
+                                </div>`;
+                        }
+
+                        let html = `
+                            <div class="col">
+                                <div class="card">
+                                    <img src="${img}" class="card-img-top object-fit-cover grid-img" alt="Foto"/>
+                                    <div class="card-body">
+                                        <h5 class="card-title">${item.name}</h5>
+                                        <p class="card-text">Category: ${item.categoryName}</p>
+                                        <p class="card-text">Price: ${item.price.toFixed(2)}</p>
+                                        ${btnHtml}
+                                    </div>
+                                </div>
+                            </div>`;
+
+                        htmlToAdd += html;
+                    });
+                    container.innerHTML += htmlToAdd;
+
+                    lastId = articles[articles.length - 1].id;
+
+                    if (articles.length < size) {
+                        document.getElementById("btnLoadMore").style.display = 'none';
+                    }
+
+                } else if (this.status === 204) {
+                    finish();
+                }
+            };
+            xhr.send();
+        }
+
+        function finish() {
+            document.getElementById("btnLoadMore").style.display = 'none';
+            alert("No more articles");
+        }
+    </script>
 }

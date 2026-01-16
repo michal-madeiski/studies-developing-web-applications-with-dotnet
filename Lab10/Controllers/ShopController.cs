@@ -1,5 +1,7 @@
 ﻿using Lab10.Data;
 using Lab10.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -22,7 +24,8 @@ namespace Lab10.Controllers
             ViewData["ShowCart"] = false;
             ViewBag.Categories = await _context.Categories.ToListAsync();
             ViewBag.SelectedCategoryId = cat_id;
-            var articles = _context.Articles.Include(a => a.Category);
+
+            int startSize = 3;
 
             if (cat_id != null)
             {
@@ -31,14 +34,16 @@ namespace Lab10.Controllers
                 {
                     if (category.Articles != null)
                     {
-                        return View(category.Articles.ToList());
+                        return View(category.Articles.OrderBy(a => a.Id).Take(startSize).ToList());
                     }
                 }
             }
 
-            return View(await articles.ToListAsync());
+            var articles = _context.Articles.Include(a => a.Category).OrderBy(a => a.Id);
+            return View(await articles.Take(startSize).ToListAsync());
         }
 
+        [Authorize(Policy = "NotAdminRole")]
         public IActionResult AddToCart(int id, int? cat_id) 
         {
             string cookie_key = "article" + id;
@@ -57,7 +62,8 @@ namespace Lab10.Controllers
 
             Response.Cookies.Append(cookie_key, cookie_value.ToString(), options);
 
-            return RedirectToAction(nameof(Index), new { cat_id = cat_id });
+            //return RedirectToAction(nameof(Index), new { cat_id = cat_id });
+            return Ok();
         }
     }
 }

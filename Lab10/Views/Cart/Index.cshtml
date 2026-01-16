@@ -1,4 +1,9 @@
-﻿@model IEnumerable<Lab10.Models.Article>
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@model IEnumerable<Lab10.Models.Article>
 @{
     ViewData["Title"] = "Index";
 }
@@ -17,5 +22,8 @@
     </div>
 } else
 {
-    <h4 class="text-end fw-bold mt-4 bg-light p-3 rounded">Total price: @ViewBag.TotalPrice zł</h4>
+    <h4 class="text-end fw-bold mt-4 bg-light p-3 rounded">Total price: @ViewBag.TotalPrice.ToString("C")</h4>
+    <div class="text-end">
+        <a asp-controller="Cart" asp-action="Checkout" class="btn btn-success btn-lg mt-3">Proceed to checkout</a>
+    </div>
 }

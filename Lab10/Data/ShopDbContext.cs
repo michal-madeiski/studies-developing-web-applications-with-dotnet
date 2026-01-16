@@ -1,9 +1,10 @@
 ﻿using Lab10.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace Lab10.Data
 {
-    public class ShopDbContext:DbContext
+    public class ShopDbContext:IdentityDbContext
     {
         public ShopDbContext(DbContextOptions<ShopDbContext> options) : base(options)
         {

@@ -1,0 +1,34 @@
+﻿@model Lab10.Models.ConfirmOrderViewModel
+
+@{
+    ViewData["Title"] = "ConfirmOrder";
+}
+
+<div class="container mt-5">
+    <div class="card text-center shadow">
+        <div class="card-header bg-success text-white">
+            <h2>Thank you for placing your order!</h2>
+        </div>
+        <div class="card-body">
+            <div class="row text-start justify-content-center">
+                <div class="col-md-6">
+                    <h5>Order details:</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <strong>Receiver:</strong> @Model.FirstName @Model.LastName
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Address:</strong> @Model.Address, @Model.ZipCode @Model.City
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Payment method:</strong> @Model.PaymentMethod
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-5">
+                <a asp-controller="Shop" asp-action="Index" class="btn btn-primary">Back to the shop</a>
+            </div>
+        </div>
+    </div>
+</div>
