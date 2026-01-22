@@ -1,0 +1,6 @@
+<div>
+    <button [class.active]="isSelected()" (click)="onSelectedArticle()">
+        <img [src]="imgPath()" [alt]="article().name">
+        <span>{{article().name}} ({{article().category.name}})</span>
+    </button>
+</div>

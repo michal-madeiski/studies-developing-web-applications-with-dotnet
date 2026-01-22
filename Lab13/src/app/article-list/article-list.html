@@ -1,0 +1,40 @@
+@if (isArticleModifyOpen) {
+    <app-article-form
+        [isAdd]="false"
+        [article]="currentArticle!"
+        (cancel)="onArticleModifyCancel()"
+        (save)="onArticleModifySave($event)"></app-article-form>
+}
+
+@if (isArticleAddOpen) {
+        <app-article-form
+            [isAdd]="true"
+            [article]="{id: 0, name: '', price: 0, category: shopService.categories[0], img: 'no_img.png'}"
+            (cancel)="onArticleAddCancel()"
+            (save)="onArticleAddSave($event)"></app-article-form>
+}
+
+<div class="container">
+    <div class="half">
+        <button class="add-btn" (click)="onArticleAddStart()">Add Article</button>
+        <ul>
+            @for(article of shopService.articles; track article.id){
+            <li>
+                <app-article 
+                [isSelected]="article.id===currentId"
+                [article]="article" 
+                (selectedId)="onSelect($event)"></app-article>
+            </li>
+            }
+        </ul>
+    </div>
+    
+    @if (currentId) {
+        <div class="half half-larger">
+            <app-article-full
+            [article]="currentArticle!"
+            (modifyPress)="onArticleModifyStart()"
+            (deletePress)="onArticleDelete()"></app-article-full>
+        </div>
+    }
+</div>

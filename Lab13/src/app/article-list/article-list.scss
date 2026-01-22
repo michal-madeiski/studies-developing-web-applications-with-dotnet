@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.half {
+    flex: 1;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.half-larger {
+    flex: 2;
+}

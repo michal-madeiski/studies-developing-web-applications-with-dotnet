@@ -15,5 +15,6 @@ Each lab class dir contains an implementation of tasks about the given topic.
 * Lab10 - entity framework
 * Lab11 - razor pages, session and cookies
 * Lab12 - identity, api and ajax (implementation in Lab10 dir)
+* Lab13 - introduction to angular
 
 _Lab[number] is a one-week homework assignment._
