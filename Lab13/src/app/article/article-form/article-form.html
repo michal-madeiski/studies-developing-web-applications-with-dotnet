@@ -17,9 +17,9 @@
             name="category"
             [ngModel]="enteredCategory()" 
             (ngModelChange)="enteredCategory.set($event)">
-                @for (category of shopService.categories; track category.id) {
-                    <option [ngValue]="category">{{ category.name }}</option>
-                }
+            @for (category of shopService.categories(); track category.id) {
+                <option [value]="category.id">{{ category.name }}</option>
+            }
         </select>
     </p>
     <p>

@@ -1,0 +1,19 @@
+<div class="backdrop" (click)="onCancel()"></div>
+<dialog open>
+@if (isAdd()) {
+    <h2>Add Category</h2>
+} @else {
+    <h2>Modify Category</h2>
+}
+<form (ngSubmit)="onSubmit()">
+    <p>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" [(ngModel)]="enteredName">
+    </p>
+    <p>
+        <button type="button" (click)="onCancel()">Cancel</button>
+        <button type="submit">Save</button>
+        <button type="button" (click)="onClickInitials()">Initials</button>
+    </p>
+</form>
+</dialog>

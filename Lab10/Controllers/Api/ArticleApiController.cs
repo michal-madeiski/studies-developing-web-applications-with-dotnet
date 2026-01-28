@@ -1,6 +1,7 @@
 ﻿using Lab10.Data;
 using Lab10.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace Lab10.Controllers.Api
 {
+    [EnableCors("AllowAll")]
     [Route("api/[controller]")]
     [ApiController]
     public class ArticleApiController : ControllerBase
@@ -29,7 +31,8 @@ namespace Lab10.Controllers.Api
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Article>>> GetArticles()
         {
-            return await _context.Articles.ToListAsync();
+            //return await _context.Articles.ToListAsync();
+            return await _context.Articles.Include(a => a.Category).ToListAsync();
         }
 
         // GET: api/ArticleApi/GetNext
@@ -78,7 +81,7 @@ namespace Lab10.Controllers.Api
         // PUT: api/ArticleApi/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        [Authorize(Policy = "AdminRole")]
+        //[Authorize(Policy = "AdminRole")]
         public async Task<IActionResult> PutArticle(int id, ArticleDto articleDto)
         {
             var article = await _context.Articles.FindAsync(id);
@@ -118,7 +121,7 @@ namespace Lab10.Controllers.Api
         // POST: api/ArticleApi
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        [Authorize(Policy = "AdminRole")]
+        //[Authorize(Policy = "AdminRole")]
         public async Task<ActionResult<Article>> PostArticle(ArticleDto articleDto)
         {
             var article = new Article
@@ -136,7 +139,7 @@ namespace Lab10.Controllers.Api
 
         // DELETE: api/ArticleApi/5
         [HttpDelete("{id}")]
-        [Authorize(Policy = "AdminRole")]
+        //[Authorize(Policy = "AdminRole")]
         public async Task<IActionResult> DeleteArticle(int id)
         {
             var article = await _context.Articles.FindAsync(id);

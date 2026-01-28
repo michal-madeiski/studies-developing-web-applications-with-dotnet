@@ -1,5 +1,11 @@
 <main class="main">
     <app-header></app-header>
-    <app-article-list></app-article-list>
+     <nav>
+        <ul>
+            <li><a routerLink="/article" routerLinkActive="active">Article</a></li>
+            <li><a routerLink="/category" routerLinkActive="active">Category</a></li>
+        </ul>
+     </nav>
+     <router-outlet></router-outlet>
     <app-footer></app-footer>
 </main>

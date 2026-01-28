@@ -2,6 +2,7 @@
 using Lab10.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace Lab10.Controllers.Api
 {
+    [EnableCors("AllowAll")]
     [Route("api/[controller]")]
     [ApiController]
     public class CategoryApiController : ControllerBase
@@ -48,7 +50,7 @@ namespace Lab10.Controllers.Api
         // PUT: api/CategoryApi/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        [Authorize(Policy = "AdminRole")]
+        //[Authorize(Policy = "AdminRole")]
         public async Task<IActionResult> PutCategory(int id, CategoryDto categoryDto)
         {
             var category = await _context.Categories.FindAsync(id);
@@ -86,7 +88,7 @@ namespace Lab10.Controllers.Api
         // POST: api/CategoryApi
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        [Authorize(Policy = "AdminRole")]
+        //[Authorize(Policy = "AdminRole")]
         public async Task<ActionResult<Category>> PostCategory(CategoryDto categoryDto)
         {
             var category = new Category
@@ -102,7 +104,7 @@ namespace Lab10.Controllers.Api
 
         // DELETE: api/CategoryApi/5
         [HttpDelete("{id}")]
-        [Authorize(Policy = "AdminRole")]
+        //[Authorize(Policy = "AdminRole")]
         public async Task<IActionResult> DeleteCategory(int id)
         {
             var category = await _context.Categories.FindAsync(id);

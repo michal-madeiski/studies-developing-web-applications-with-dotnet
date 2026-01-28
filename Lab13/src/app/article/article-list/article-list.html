@@ -1,0 +1,13 @@
+<button class="add-btn" (click)="add.emit()">Add Article</button>
+<ul>
+    @for(article of articles(); track article.id){
+    <li>
+        <app-article 
+        [isSelected]="article.id===selectedId()"
+        [article]="article" 
+        (selectedId)="select.emit($event)"></app-article>
+    </li>
+    }
+</ul>
+@if (shopService.hasMoreArticles()) { <button (click)="shopService.loadMoreArticles()">Load More Articles</button> }
+@else { <p>No more Articles.</p> }

@@ -1,0 +1,30 @@
+@if (isCategoryModifyOpen) {
+    <app-category-form
+        [isAdd]="false"
+        [category]="currentCategory()!"
+        (cancel)="onCategoryModifyCancel()"
+        (save)="onCategoryModifySave($event)"></app-category-form>
+}
+
+@if (isCategoryAddOpen) {
+        <app-category-form
+            [isAdd]="true"
+            [category]="{id: 0, name: ''}"
+            (cancel)="onCategoryAddCancel()"
+            (save)="onCategoryAddSave($event)"></app-category-form>
+}
+
+<div class="container">
+    <div class="half">
+        <app-category-list
+            [categories]="shopService.categories()"
+            [selectedId]="currentId"
+            (select)="onSelect($event)"
+            (add)="onCategoryAddStart()">
+        </app-category-list>
+    </div>
+
+    <div class="half half-larger">
+        <router-outlet></router-outlet>
+    </div>
+</div>
