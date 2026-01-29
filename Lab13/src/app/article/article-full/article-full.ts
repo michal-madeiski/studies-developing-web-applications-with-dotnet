@@ -43,10 +43,17 @@ export class ArticleFull implements OnInit{
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       let id = Number(params.get('id'));
-      this.shopService.getArticleById(id).subscribe((article) => {
-        this.article.set(article)
-        if(article==undefined)
-          this.router.navigate([`/article`]);
+      this.shopService.getArticleById(id).subscribe({
+        next: (article) => {
+          if (article) {
+            this.article.set(article);
+          } else {
+            this.router.navigate(['/article']);
+          }
+        },
+        error: (err) => {
+          this.router.navigate(['/article']);
+        }
       });
     });
   }
